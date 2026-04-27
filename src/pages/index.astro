@@ -1,0 +1,597 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Phone, ExternalLink, Star, Droplets, Sparkles, Car, Zap, Check, Shield, Award, Clock, Leaf, X } from '@lucide/astro';
+
+const addons = [
+  { name: "Headlight Restoration", price: "Starting at $75" },
+  { name: "Engine Bay Detail", price: "$50" },
+  { name: "Clay Bar Treatment", price: "$75" },
+  { name: "Ceramic Coating", price: "Contact for Quote" },
+];
+
+const services = [
+  {
+    id: "modal-1",
+    level: "Level 1",
+    name: "Basic Exterior Detail",
+    price: "$105",
+    pricePrefix: "",
+    popular: false,
+    filled: false,
+    features: [
+      "Hand wash and dry",
+      "Wheels, tires & wheel wells cleaned",
+      "Tire dressing applied",
+      "Exterior windows cleaned",
+      "Spray wax protection",
+      "Door jambs cleaned",
+    ],
+    description: "A thorough exterior transformation. We hand wash and dry your entire vehicle, clean the wheels, tires, and wheel wells, apply tire dressing for that glossy finish, clean exterior windows, and protect the paint with a spray wax. Door jambs are wiped clean too — the details that most people miss.",
+    images: ["/images/modal-exterior-1.jpg", "/images/modal-exterior-2.jpg"],
+  },
+  {
+    id: "modal-2",
+    level: "Level 2",
+    name: "Full Detail",
+    price: "$205",
+    pricePrefix: "",
+    popular: false,
+    filled: false,
+    features: [
+      "Complete exterior detail",
+      "Deep interior vacuum",
+      "Wipe down of all interior surfaces",
+      "Floor mats cleaned",
+      "Interior windows cleaned",
+      "Seats & carpets spot cleaned",
+      "Leather cleaned & conditioned (if applicable)",
+      "Premium exterior sealant",
+    ],
+    description: "Our all-in-one package. Everything in the Basic Exterior Detail, plus a deep interior vacuum, wipe-down of all surfaces, cleaned floor mats, interior windows, spot treatment on seats and carpets, leather conditioning if applicable, and a premium exterior sealant for longer-lasting protection.",
+    images: [],
+    beforeAfter: { before: "/images/modal-interior-before.jpg", after: "/images/modal-interior-after.jpg" },
+  },
+  {
+    id: "modal-3",
+    level: "Level 3",
+    name: "Showroom Detail",
+    price: "$335",
+    pricePrefix: "",
+    popular: true,
+    filled: true,
+    features: [
+      "Everything in Full Detail",
+      "Clay bar treatment",
+      "One-step machine polish",
+      "Engine bay cleaning",
+      "Deep shampoo of carpets & seats",
+      "Interior steam cleaning",
+      "Premium paint protection applied",
+    ],
+    description: "The full experience. Everything in the Full Detail, plus clay bar treatment to remove embedded contaminants, one-step machine polishing to restore gloss and remove light swirls, engine bay cleaning, deep shampoo of carpets and seats, interior steam cleaning, and a premium paint protection sealant. The closest thing to factory-fresh.",
+    images: ["/images/modal-showroom-1.jpg", "/images/modal-showroom-2.jpg"],
+  },
+  {
+    id: "modal-4",
+    level: "Premium",
+    name: "Paint Correction",
+    price: "$650",
+    pricePrefix: "Starting at",
+    popular: false,
+    filled: false,
+    features: [
+      "Multi-stage machine polishing",
+      "Removes swirl marks, light scratches & oxidation",
+      "Restores depth, clarity & gloss",
+      "Paint decontamination & surface prep",
+      "Final price based on vehicle size & condition",
+    ],
+    description: "For vehicles with heavy swirl marks, light scratches, oxidation, or faded paint. We use multi-stage machine polishing to restore depth, clarity, and mirror-like gloss. Every correction starts with full decontamination and surface prep. Final price is based on vehicle size and paint condition — contact us for a free quote.",
+    images: ["/images/modal-correction-1.jpg", "/images/modal-correction-2.jpg"],
+  },
+];
+
+const galleryImages = [
+  "/images/gallery-1.jpg",
+  "/images/gallery-2.jpg",
+  "/images/gallery-3.jpg",
+  "/images/gallery-4.jpg",
+  "/images/gallery-5.jpg",
+  "/images/gallery-6.jpg",
+];
+---
+
+<Layout>
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#06101E]/90 backdrop-blur-sm border-b border-[#1A3050]">
+    <span class="text-white font-bold text-lg tracking-wide">KL AutoSpa</span>
+    <a
+      href="tel:4153280106"
+      class="flex items-center gap-2 bg-[#2563EB] hover:bg-[#3B82F6] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors duration-200"
+    >
+      <Phone size={15} />
+      415-328-0106
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-center justify-center text-center px-6 pt-20 bg-[#06101E]">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#06101E] via-[#06101E]/80 to-[#06101E] z-10"></div>
+    <div class="absolute inset-0 overflow-hidden">
+      <img
+        src="/images/hero.jpg"
+        alt="Freshly detailed black car"
+        class="w-full h-full object-cover opacity-30"
+      />
+    </div>
+    <div class="relative z-20 max-w-3xl mx-auto">
+      <div class="flex items-center justify-center gap-3 mb-5">
+        <span class="text-[#60A5FA] text-sm font-semibold tracking-[0.15em] uppercase">Marin County</span>
+        <span class="w-1 h-1 rounded-full bg-[#2563EB]"></span>
+        <span class="text-[#60A5FA] text-sm font-semibold tracking-[0.15em] uppercase">Student-Run · Bay Area</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl font-black text-white leading-none tracking-tight mb-6">
+        Your Car Deserves<br />the Best.
+      </h1>
+      <p class="text-[#94A3B8] text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
+        Two Marin County high schoolers who are obsessed with cars and serious about results. Professional detailing that restores, protects, and makes your car look showroom-ready — every time.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="tel:4153280106"
+          class="flex items-center justify-center gap-2 bg-[#2563EB] hover:bg-[#3B82F6] text-white font-bold px-8 py-4 rounded-lg text-base transition-all duration-200 hover:-translate-y-0.5"
+        >
+          <Phone size={18} />
+          Book Now — 415-328-0106
+        </a>
+        <a
+          href="#services"
+          class="flex items-center justify-center border border-[#1A3050] hover:border-[#2563EB] text-[#F8FAFC] font-semibold px-8 py-4 rounded-lg text-base transition-all duration-200 hover:-translate-y-0.5"
+        >
+          View Services
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+  <section class="py-28 px-6 bg-[#06101E]">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-[#60A5FA] text-sm font-semibold tracking-[0.15em] uppercase text-center mb-3">Who We Are</p>
+      <h2 class="text-4xl md:text-5xl font-black text-white text-center mb-4">Meet The Team</h2>
+      <p class="text-[#94A3B8] text-center max-w-2xl mx-auto mb-16 leading-relaxed">
+        We're Kaden and Logan — two Marin County high schoolers who turned a passion for cars into a real business. No corners cut, no shortcuts taken. Just two guys who show up, put in the work, and won't stop until your car looks perfect.
+      </p>
+
+      <div class="max-w-lg mx-auto">
+        <div class="overflow-hidden rounded-2xl mb-8" style="aspect-ratio: 4/5;">
+          <img src="/images/IMG_1204.JPG" alt="Kaden O'Dell and Logan McKenzie" class="w-full h-full object-cover object-top" />
+        </div>
+        <div class="grid grid-cols-2 gap-6 text-center">
+          <div>
+            <h3 class="text-white text-xl font-bold mb-1">Kaden O'Dell</h3>
+            <p class="text-[#2563EB] text-sm font-semibold mb-2">Co-Founder</p>
+            <p class="text-[#94A3B8] text-sm leading-relaxed">Car enthusiast and the kind of person who notices the stuff everyone else misses.</p>
+          </div>
+          <div>
+            <h3 class="text-white text-xl font-bold mb-1">Logan McKenzie</h3>
+            <p class="text-[#2563EB] text-sm font-semibold mb-2">Co-Founder</p>
+            <p class="text-[#94A3B8] text-sm leading-relaxed">Detail-obsessed and driven. Won't stop until your car looks perfect.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Service Area -->
+      <div class="mt-20 bg-[#0D1E35] border border-[#1A3050] rounded-2xl p-8">
+        <div class="flex items-center gap-3 mb-2">
+          <div class="w-10 h-10 rounded-lg bg-[#2563EB]/10 border border-[#2563EB]/20 flex items-center justify-center shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <p class="text-[#60A5FA] text-sm font-semibold tracking-[0.15em] uppercase">Service Area</p>
+        </div>
+        <h3 class="text-white text-3xl font-black mb-3">We Come To You.</h3>
+        <p class="text-[#94A3B8] text-sm leading-relaxed mb-6 max-w-xl">
+          Fully mobile — we bring everything straight to your driveway, garage, or parking spot. No drop-off needed. We serve all of Marin County.
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-4">
+          {[
+            "San Rafael", "Mill Valley", "Tiburon", "Sausalito", "Novato",
+            "Fairfax", "San Anselmo", "Corte Madera", "Larkspur", "Greenbrae",
+          ].map(city => (
+            <div class="flex items-center gap-2 text-[#94A3B8] text-sm">
+              <div class="w-1.5 h-1.5 rounded-full bg-[#2563EB] shrink-0"></div>
+              {city}
+            </div>
+          ))}
+        </div>
+        <p class="text-[#60A5FA] text-xs">Don't see your area? Give us a call — we'll work it out.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WATCH US WORK (moved above services) -->
+  <section class="py-28 px-6 bg-[#0A1628]">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-[#60A5FA] text-sm font-semibold tracking-[0.15em] uppercase text-center mb-3">Behind The Detail</p>
+      <h2 class="text-4xl md:text-5xl font-black text-white text-center mb-4">See The Process</h2>
+      <p class="text-[#94A3B8] text-center max-w-xl mx-auto mb-16">Real jobs. Real work. No filters.</p>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="overflow-hidden rounded-2xl aspect-[9/16]">
+          <video autoplay muted loop playsinline class="w-full h-full object-cover">
+            <source src="/images/video-detail.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="overflow-hidden rounded-2xl aspect-[9/16]">
+          <video autoplay muted loop playsinline class="w-full h-full object-cover">
+            <source src="/images/video-foam.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="overflow-hidden rounded-2xl aspect-[9/16]">
+          <video autoplay muted loop playsinline class="w-full h-full object-cover">
+            <source src="/images/video-wash.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="overflow-hidden rounded-2xl aspect-[9/16]">
+          <video autoplay muted loop playsinline class="w-full h-full object-cover">
+            <source src="/images/video-closeup.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="overflow-hidden rounded-2xl aspect-[9/16]">
+          <video autoplay muted loop playsinline class="w-full h-full object-cover">
+            <source src="/images/video-engine.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="overflow-hidden rounded-2xl aspect-[9/16]">
+          <video autoplay muted loop playsinline class="w-full h-full object-cover">
+            <source src="/images/video-interior.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-28 px-6 bg-[#06101E]">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-[#60A5FA] text-sm font-semibold tracking-[0.15em] uppercase text-center mb-3">What We Offer</p>
+      <h2 class="text-4xl md:text-5xl font-black text-white text-center mb-4">Our Services</h2>
+      <p class="text-[#94A3B8] text-center max-w-xl mx-auto mb-16 leading-relaxed">Every package is performed with professional-grade products and a meticulous eye for detail.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {services.map(service => (
+          <div class={`bg-[#0D1E35] border ${service.popular ? 'border-[#2563EB]/40' : 'border-[#1A3050]'} rounded-2xl p-8 hover:-translate-y-1 transition-transform duration-200 relative overflow-hidden flex flex-col`}>
+            {service.popular && (
+              <div class="absolute top-4 right-4 bg-[#2563EB] text-white text-xs font-bold px-3 py-1 rounded-full tracking-wide">POPULAR</div>
+            )}
+            <div class="flex items-start justify-between mb-6">
+              <div>
+                <p class="text-[#94A3B8] text-xs font-semibold tracking-widest uppercase mb-1">{service.level}</p>
+                <h3 class="text-white text-2xl font-bold">{service.name}</h3>
+              </div>
+              <div class="text-right">
+                {service.pricePrefix && <p class="text-[#94A3B8] text-xs mb-1">{service.pricePrefix}</p>}
+                <span class="text-[#2563EB] text-3xl font-black">{service.price}</span>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-8 flex-1">
+              {service.features.map(item => (
+                <li class="flex items-center gap-2 text-[#94A3B8] text-sm">
+                  <Check size={14} class="text-[#2563EB] shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div class="flex gap-3">
+              <button
+                data-modal={service.id}
+                class="flex-1 text-center border border-[#2563EB] text-[#2563EB] hover:bg-[#2563EB]/10 font-semibold text-sm py-3 rounded-lg transition-all duration-200 cursor-pointer"
+              >
+                See Details
+              </button>
+              <a
+                href="tel:4153280106"
+                class={`flex-1 block text-center font-semibold text-sm py-3 rounded-lg transition-all duration-200 ${service.filled ? 'bg-[#2563EB] hover:bg-[#3B82F6] text-white' : 'border border-[#2563EB] text-[#2563EB] hover:bg-[#2563EB] hover:text-white'}`}
+              >
+                Call to Book
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ADD-ONS -->
+  <section class="py-20 px-6 bg-[#06101E]">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-[#60A5FA] text-sm font-semibold tracking-[0.15em] uppercase text-center mb-3">Extras</p>
+      <h2 class="text-3xl md:text-4xl font-black text-white text-center mb-3">Add-On Services</h2>
+      <p class="text-[#94A3B8] text-center mb-12">Enhance any package with these optional upgrades.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        {addons.map(addon => (
+          <div class="bg-[#0D1E35] border border-[#1A3050] rounded-xl p-5 hover:-translate-y-1 transition-transform duration-200">
+            <h3 class="text-white font-bold mb-2 text-sm">{addon.name}</h3>
+            <p class="text-[#2563EB] font-semibold text-sm">{addon.price}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR WORK GALLERY -->
+  <section class="py-28 px-6 bg-[#0A1628]">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-[#60A5FA] text-sm font-semibold tracking-[0.15em] uppercase text-center mb-3">The Proof</p>
+      <h2 class="text-4xl md:text-5xl font-black text-white text-center mb-4">The Results</h2>
+      <p class="text-[#94A3B8] text-center max-w-xl mx-auto mb-16">Every car we touch leaves looking its absolute best.</p>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {galleryImages.map((src, i) => (
+          <div class="overflow-hidden rounded-2xl aspect-[4/3] group">
+            <img
+              src={src}
+              alt={`KL AutoSpa detail work ${i + 1}`}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY KL AUTOSPA -->
+  <section class="py-28 px-6 bg-[#06101E]">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-[#60A5FA] text-sm font-semibold tracking-[0.15em] uppercase text-center mb-3">Why Choose Us</p>
+      <h2 class="text-4xl md:text-5xl font-black text-white text-center mb-16">Why KL AutoSpa?</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="bg-[#0D1E35] border border-[#1A3050] rounded-2xl p-6 hover:-translate-y-1 transition-transform duration-200">
+          <div class="w-12 h-12 rounded-xl bg-[#2563EB]/10 border border-[#2563EB]/20 flex items-center justify-center mb-4">
+            <Shield size={22} class="text-[#2563EB]" />
+          </div>
+          <h3 class="text-white font-bold text-lg mb-2">Professional-Grade Products</h3>
+          <p class="text-[#94A3B8] text-sm leading-relaxed">We only use pro-level detailing solutions — the same products trusted by luxury car dealerships.</p>
+        </div>
+
+        <div class="bg-[#0D1E35] border border-[#1A3050] rounded-2xl p-6 hover:-translate-y-1 transition-transform duration-200">
+          <div class="w-12 h-12 rounded-xl bg-[#2563EB]/10 border border-[#2563EB]/20 flex items-center justify-center mb-4">
+            <Award size={22} class="text-[#2563EB]" />
+          </div>
+          <h3 class="text-white font-bold text-lg mb-2">Satisfaction Guaranteed</h3>
+          <p class="text-[#94A3B8] text-sm leading-relaxed">Not happy? We'll make it right. Your car leaves looking exactly how you'd expect — or better.</p>
+        </div>
+
+        <div class="bg-[#0D1E35] border border-[#1A3050] rounded-2xl p-6 hover:-translate-y-1 transition-transform duration-200">
+          <div class="w-12 h-12 rounded-xl bg-[#2563EB]/10 border border-[#2563EB]/20 flex items-center justify-center mb-4">
+            <Clock size={22} class="text-[#2563EB]" />
+          </div>
+          <h3 class="text-white font-bold text-lg mb-2">Flexible Scheduling</h3>
+          <p class="text-[#94A3B8] text-sm leading-relaxed">We work around your schedule. Call or text to book a time that's convenient for you.</p>
+        </div>
+
+        <div class="bg-[#0D1E35] border border-[#1A3050] rounded-2xl p-6 hover:-translate-y-1 transition-transform duration-200">
+          <div class="w-12 h-12 rounded-xl bg-[#2563EB]/10 border border-[#2563EB]/20 flex items-center justify-center mb-4">
+            <Sparkles size={22} class="text-[#2563EB]" />
+          </div>
+          <h3 class="text-white font-bold text-lg mb-2">Meticulous Attention to Detail</h3>
+          <p class="text-[#94A3B8] text-sm leading-relaxed">Every inch treated with care. We don't cut corners — it's in the name.</p>
+        </div>
+
+        <div class="bg-[#0D1E35] border border-[#1A3050] rounded-2xl p-6 hover:-translate-y-1 transition-transform duration-200">
+          <div class="w-12 h-12 rounded-xl bg-[#2563EB]/10 border border-[#2563EB]/20 flex items-center justify-center mb-4">
+            <Leaf size={22} class="text-[#2563EB]" />
+          </div>
+          <h3 class="text-white font-bold text-lg mb-2">Eco-Friendly Process</h3>
+          <p class="text-[#94A3B8] text-sm leading-relaxed">Water-conscious techniques and environmentally responsible products — clean car, clean conscience.</p>
+        </div>
+
+        <div class="bg-[#0D1E35] border border-[#1A3050] rounded-2xl p-6 hover:-translate-y-1 transition-transform duration-200">
+          <div class="w-12 h-12 rounded-xl bg-[#2563EB]/10 border border-[#2563EB]/20 flex items-center justify-center mb-4">
+            <Star size={22} class="text-[#2563EB]" fill="#2563EB" />
+          </div>
+          <h3 class="text-white font-bold text-lg mb-2">5-Star Rated</h3>
+          <p class="text-[#94A3B8] text-sm leading-relaxed">Bay Area clients keep coming back. Our reputation speaks for itself — see for yourself.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="py-28 px-6 bg-[#0A1628]">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-[#60A5FA] text-sm font-semibold tracking-[0.15em] uppercase text-center mb-3">The Process</p>
+      <h2 class="text-4xl md:text-5xl font-black text-white text-center mb-16">How It Works</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-14 h-14 rounded-full bg-[#2563EB]/10 border border-[#2563EB]/30 flex items-center justify-center mx-auto mb-6">
+            <span class="text-[#2563EB] font-black text-xl">1</span>
+          </div>
+          <h3 class="text-white font-bold text-lg mb-3">Book Your Appointment</h3>
+          <p class="text-[#94A3B8] text-sm leading-relaxed">Call or text us at 415-328-0106. We'll find a time that works for you.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 rounded-full bg-[#2563EB]/10 border border-[#2563EB]/30 flex items-center justify-center mx-auto mb-6">
+            <span class="text-[#2563EB] font-black text-xl">2</span>
+          </div>
+          <h3 class="text-white font-bold text-lg mb-3">We Detail Your Car</h3>
+          <p class="text-[#94A3B8] text-sm leading-relaxed">Professional products, professional technique. Every inch treated with care.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 rounded-full bg-[#2563EB]/10 border border-[#2563EB]/30 flex items-center justify-center mx-auto mb-6">
+            <span class="text-[#2563EB] font-black text-xl">3</span>
+          </div>
+          <h3 class="text-white font-bold text-lg mb-3">Drive Away Impressed</h3>
+          <p class="text-[#94A3B8] text-sm leading-relaxed">Showroom-ready results, every time. Your satisfaction is guaranteed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-28 px-6 bg-[#06101E]">
+    <div class="max-w-2xl mx-auto text-center">
+      <p class="text-[#60A5FA] text-sm font-semibold tracking-[0.15em] uppercase mb-3">Get In Touch</p>
+      <h2 class="text-4xl md:text-5xl font-black text-white mb-6">Ready to Book?</h2>
+      <p class="text-[#94A3B8] text-lg mb-12 leading-relaxed">Give us a call or follow us on social. We're based in the San Francisco Bay Area.</p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <a
+          href="tel:4153280106"
+          class="flex items-center justify-center gap-3 bg-[#2563EB] hover:bg-[#3B82F6] text-white font-bold px-8 py-4 rounded-lg transition-all duration-200 hover:-translate-y-0.5"
+        >
+          <Phone size={20} />
+          415-328-0106
+        </a>
+        <a
+          href="https://www.instagram.com/klautospa"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-3 border border-[#1A3050] hover:border-[#2563EB] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 hover:-translate-y-0.5"
+        >
+          <ExternalLink size={20} />
+          @klautospa on Instagram
+        </a>
+      </div>
+
+      <div class="flex items-center justify-center gap-1 text-[#2563EB]">
+        {Array(5).fill(null).map(() => <Star size={18} fill="#2563EB" />)}
+        <span class="text-[#94A3B8] text-sm ml-3">5-Star Service</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[#1A3050] py-8 px-6 bg-[#06101E]">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <span class="text-white font-bold">KL AutoSpa</span>
+      <p class="text-[#94A3B8] text-sm">San Francisco Bay Area · 415-328-0106</p>
+      <div class="flex gap-6">
+        <a href="https://www.instagram.com/klautospa" target="_blank" rel="noopener noreferrer" class="text-[#94A3B8] hover:text-white text-sm transition-colors">Instagram</a>
+        <a href="https://www.tiktok.com/@kl.autospa" target="_blank" rel="noopener noreferrer" class="text-[#94A3B8] hover:text-white text-sm transition-colors">TikTok</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SERVICE MODALS -->
+  {services.map(service => (
+    <div id={service.id} class="modal-overlay fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+      <div class="modal-panel bg-[#0D1E35] border border-[#1A3050] rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
+        <div class="p-8">
+          <button class="modal-close absolute top-5 right-5 w-9 h-9 flex items-center justify-center rounded-full bg-[#1A3050] hover:bg-[#2563EB]/20 text-[#94A3B8] hover:text-white transition-all duration-200">
+            ✕
+          </button>
+
+          <p class="text-[#94A3B8] text-xs font-semibold tracking-widest uppercase mb-1">{service.level}</p>
+          <div class="flex items-start justify-between mb-2 pr-10">
+            <h3 class="text-white text-2xl font-bold">{service.name}</h3>
+            <div class="text-right shrink-0 ml-4">
+              {service.pricePrefix && <p class="text-[#94A3B8] text-xs mb-0.5">{service.pricePrefix}</p>}
+              <span class="text-[#2563EB] text-2xl font-black">{service.price}</span>
+            </div>
+          </div>
+
+          <p class="text-[#94A3B8] text-sm leading-relaxed mb-6">{service.description}</p>
+
+          {service.beforeAfter ? (
+            <div class="mb-6">
+              <div class="ba-slider-modal relative overflow-hidden rounded-xl cursor-ew-resize select-none" style="height: 260px;">
+                <img src={service.beforeAfter.after} alt="After" class="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+                <img src={service.beforeAfter.before} alt="Before" class="ba-before-modal absolute inset-0 w-full h-full object-cover pointer-events-none" style="clip-path: inset(0 50% 0 0);" />
+                <div class="ba-divider-modal absolute top-0 bottom-0 z-20 pointer-events-none" style="left: 50%;">
+                  <div class="absolute top-0 bottom-0 w-0.5 bg-white -translate-x-1/2"></div>
+                  <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-white shadow-2xl flex items-center justify-center text-[#0A1628] font-black text-xs">⟺</div>
+                </div>
+                <span class="absolute bottom-3 left-3 z-10 bg-[#06101E]/80 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded-full tracking-widest uppercase pointer-events-none">Before</span>
+                <span class="absolute bottom-3 right-3 z-10 bg-[#2563EB]/90 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded-full tracking-widest uppercase pointer-events-none">After</span>
+              </div>
+            </div>
+          ) : (
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              {service.images.map((src, i) => (
+                <div class="overflow-hidden rounded-xl aspect-[4/3]">
+                  <img src={src} alt={`${service.name} example ${i + 1}`} class="w-full h-full object-cover" />
+                </div>
+              ))}
+            </div>
+          )}
+
+          <ul class="space-y-2 mb-8">
+            {service.features.map(item => (
+              <li class="flex items-center gap-2 text-[#94A3B8] text-sm">
+                <Check size={14} class="text-[#2563EB] shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="tel:4153280106"
+            class="flex items-center justify-center gap-2 bg-[#2563EB] hover:bg-[#3B82F6] text-white font-bold py-4 rounded-lg transition-all duration-200 w-full"
+          >
+            <Phone size={18} />
+            Call to Book — 415-328-0106
+          </a>
+        </div>
+      </div>
+    </div>
+  ))}
+
+  <script>
+    // Modal open
+    document.querySelectorAll('[data-modal]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const modal = document.getElementById((btn as HTMLElement).dataset.modal!);
+        if (!modal) return;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // Modal close — clicking X or the backdrop
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (target === overlay || target.closest('.modal-close')) {
+          overlay.classList.add('hidden');
+          overlay.classList.remove('flex');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+
+    // Modal before/after sliders
+    document.querySelectorAll('.ba-slider-modal').forEach(slider => {
+      const beforeImg = slider.querySelector('.ba-before-modal') as HTMLElement;
+      const divider = slider.querySelector('.ba-divider-modal') as HTMLElement;
+      let dragging = false;
+      function move(clientX: number) {
+        const rect = slider.getBoundingClientRect();
+        const pct = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
+        beforeImg.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+        divider.style.left = pct + '%';
+      }
+      slider.addEventListener('mousedown', (e) => { dragging = true; move((e as MouseEvent).clientX); e.preventDefault(); });
+      slider.addEventListener('touchstart', (e) => { dragging = true; move((e as TouchEvent).touches[0].clientX); }, { passive: true });
+      window.addEventListener('mousemove', (e) => { if (dragging) move((e as MouseEvent).clientX); });
+      window.addEventListener('touchmove', (e) => { if (dragging) move((e as TouchEvent).touches[0].clientX); }, { passive: true });
+      window.addEventListener('mouseup', () => dragging = false);
+      window.addEventListener('touchend', () => dragging = false);
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.flex').forEach(overlay => {
+          overlay.classList.add('hidden');
+          overlay.classList.remove('flex');
+          document.body.style.overflow = '';
+        });
+      }
+    });
+  </script>
+
+</Layout>

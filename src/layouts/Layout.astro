@@ -1,0 +1,37 @@
+---
+import { SEO } from 'astro-seo';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'KL AutoSpa — Premium Auto Detailing in the Bay Area',
+  description = 'Professional auto detailing in the San Francisco Bay Area. Exterior details, full details, showroom finishes, and paint correction. Call 415-328-0106.'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title,
+          type: 'website',
+          image: '/og-image.jpg',
+        }
+      }}
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
