@@ -102,16 +102,29 @@ const galleryImages = [
 ---
 
 <Layout>
+  <a href="#services" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-[#2563EB] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold">
+    Skip to services
+  </a>
+
   <!-- NAV -->
   <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#06101E]/90 backdrop-blur-sm border-b border-[#1A3050]">
     <span class="text-white font-bold text-lg tracking-wide">KL AutoSpa</span>
-    <a
-      href="tel:4153280106"
-      class="flex items-center gap-2 bg-[#2563EB] hover:bg-[#3B82F6] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors duration-200"
-    >
-      <Phone size={15} />
-      415-328-0106
-    </a>
+    <div class="flex items-center gap-2">
+      <a
+        href="sms:+14153280106"
+        class="hidden sm:flex items-center gap-2 border border-[#1A3050] hover:border-[#2563EB] text-[#94A3B8] hover:text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors duration-200"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        Text Us
+      </a>
+      <a
+        href="tel:+14153280106"
+        class="flex items-center gap-2 bg-[#2563EB] hover:bg-[#3B82F6] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors duration-200"
+      >
+        <Phone size={15} />
+        415-328-0106
+      </a>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -138,11 +151,18 @@ const galleryImages = [
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href="tel:4153280106"
+          href="tel:+14153280106"
           class="flex items-center justify-center gap-2 bg-[#2563EB] hover:bg-[#3B82F6] text-white font-bold px-8 py-4 rounded-lg text-base transition-all duration-200 hover:-translate-y-0.5"
         >
           <Phone size={18} />
           Book Now — 415-328-0106
+        </a>
+        <a
+          href="sms:+14153280106"
+          class="flex items-center justify-center gap-2 border border-[#1A3050] hover:border-[#2563EB] text-[#F8FAFC] font-bold px-8 py-4 rounded-lg text-base transition-all duration-200 hover:-translate-y-0.5"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Text Us
         </a>
         <a
           href="#services"
@@ -183,15 +203,21 @@ const galleryImages = [
       </div>
       <!-- Service Area -->
       <div class="mt-20 bg-[#0D1E35] border border-[#1A3050] rounded-2xl p-8">
-        <div class="flex items-center gap-3 mb-2">
-          <div class="w-10 h-10 rounded-lg bg-[#2563EB]/10 border border-[#2563EB]/20 flex items-center justify-center shrink-0">
+        <div class="flex flex-col items-center text-center mb-6">
+          <div class="w-10 h-10 rounded-lg bg-[#2563EB]/10 border border-[#2563EB]/20 flex items-center justify-center mb-3">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
-          <p class="text-[#60A5FA] text-sm font-semibold tracking-[0.15em] uppercase">Service Area</p>
+          <p class="text-[#60A5FA] text-sm font-semibold tracking-[0.15em] uppercase mb-2">Service Area</p>
+          <h3 class="text-white text-3xl font-black mb-3">We Come To You.</h3>
+          <p class="text-[#94A3B8] text-sm leading-relaxed max-w-xl">
+            Fully mobile — we bring everything straight to your driveway, garage, or parking spot. No drop-off needed. We serve all of Marin County.
+          </p>
         </div>
-        <h3 class="text-white text-3xl font-black mb-3">We Come To You.</h3>
-        <p class="text-[#94A3B8] text-sm leading-relaxed mb-6 max-w-xl">
-          Fully mobile — we bring everything straight to your driveway, garage, or parking spot. No drop-off needed. We serve all of Marin County.
+        <div class="rounded-xl border border-[#1A3050] mb-3 overflow-hidden bg-[#06101E]">
+          <div id="marin-map" style="height: 420px; min-height: 420px; background: #06101E;" aria-label="Map of Marin County showing KL AutoSpa service area" role="img"></div>
+        </div>
+        <p class="text-[#94A3B8]/60 text-[10px] text-center mb-6">
+          Map &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" class="hover:text-white">OpenStreetMap</a> contributors &middot; &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener" class="hover:text-white">CARTO</a>
         </p>
         <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-4">
           {[
@@ -204,7 +230,7 @@ const galleryImages = [
             </div>
           ))}
         </div>
-        <p class="text-[#60A5FA] text-xs">Don't see your area? Give us a call — we'll work it out.</p>
+        <p class="text-[#60A5FA] text-xs text-center">Don't see your area? Give us a call — we'll work it out.</p>
       </div>
     </div>
   </section>
@@ -218,32 +244,32 @@ const galleryImages = [
 
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
         <div class="overflow-hidden rounded-2xl aspect-[9/16]">
-          <video autoplay muted loop playsinline class="w-full h-full object-cover">
+          <video autoplay muted loop playsinline preload="metadata" class="w-full h-full object-cover">
             <source src="/images/video-detail.mp4" type="video/mp4" />
           </video>
         </div>
         <div class="overflow-hidden rounded-2xl aspect-[9/16]">
-          <video autoplay muted loop playsinline class="w-full h-full object-cover">
+          <video autoplay muted loop playsinline preload="metadata" class="w-full h-full object-cover">
             <source src="/images/video-foam.mp4" type="video/mp4" />
           </video>
         </div>
         <div class="overflow-hidden rounded-2xl aspect-[9/16]">
-          <video autoplay muted loop playsinline class="w-full h-full object-cover">
+          <video autoplay muted loop playsinline preload="metadata" class="w-full h-full object-cover">
             <source src="/images/video-wash.mp4" type="video/mp4" />
           </video>
         </div>
         <div class="overflow-hidden rounded-2xl aspect-[9/16]">
-          <video autoplay muted loop playsinline class="w-full h-full object-cover">
+          <video autoplay muted loop playsinline preload="metadata" class="w-full h-full object-cover">
             <source src="/images/video-closeup.mp4" type="video/mp4" />
           </video>
         </div>
         <div class="overflow-hidden rounded-2xl aspect-[9/16]">
-          <video autoplay muted loop playsinline class="w-full h-full object-cover">
+          <video autoplay muted loop playsinline preload="metadata" class="w-full h-full object-cover">
             <source src="/images/video-engine.mp4" type="video/mp4" />
           </video>
         </div>
         <div class="overflow-hidden rounded-2xl aspect-[9/16]">
-          <video autoplay muted loop playsinline class="w-full h-full object-cover">
+          <video autoplay muted loop playsinline preload="metadata" class="w-full h-full object-cover">
             <source src="/images/video-interior.mp4" type="video/mp4" />
           </video>
         </div>
@@ -260,9 +286,13 @@ const galleryImages = [
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {services.map(service => (
-          <div class={`bg-[#0D1E35] border ${service.popular ? 'border-[#2563EB]/40' : 'border-[#1A3050]'} rounded-2xl p-8 hover:-translate-y-1 transition-transform duration-200 relative overflow-hidden flex flex-col`}>
+          <div class={`bg-[#0D1E35] border ${service.popular ? 'border-[#2563EB]/40' : 'border-[#1A3050]'} rounded-2xl p-8 hover:-translate-y-1 transition-transform duration-200 relative flex flex-col`}>
             {service.popular && (
-              <div class="absolute top-4 right-4 bg-[#2563EB] text-white text-xs font-bold px-3 py-1 rounded-full tracking-wide">POPULAR</div>
+              <div class="flex justify-center mb-4">
+                <span class="bg-[#2563EB] text-white text-xs font-bold px-3 py-1 rounded-full uppercase" style="letter-spacing: 0.15em;">
+                  ★ Most Popular
+                </span>
+              </div>
             )}
             <div class="flex items-start justify-between mb-6">
               <div>
@@ -290,7 +320,7 @@ const galleryImages = [
                 See Details
               </button>
               <a
-                href="tel:4153280106"
+                href="tel:+14153280106"
                 class={`flex-1 block text-center font-semibold text-sm py-3 rounded-lg transition-all duration-200 ${service.filled ? 'bg-[#2563EB] hover:bg-[#3B82F6] text-white' : 'border border-[#2563EB] text-[#2563EB] hover:bg-[#2563EB] hover:text-white'}`}
               >
                 Call to Book
@@ -391,8 +421,8 @@ const galleryImages = [
           <div class="w-12 h-12 rounded-xl bg-[#2563EB]/10 border border-[#2563EB]/20 flex items-center justify-center mb-4">
             <Star size={22} class="text-[#2563EB]" fill="#2563EB" />
           </div>
-          <h3 class="text-white font-bold text-lg mb-2">5-Star Rated</h3>
-          <p class="text-[#94A3B8] text-sm leading-relaxed">Bay Area clients keep coming back. Our reputation speaks for itself — see for yourself.</p>
+          <h3 class="text-white font-bold text-lg mb-2">Real Work, Real Reviews</h3>
+          <p class="text-[#94A3B8] text-sm leading-relaxed">Every job documented on Instagram and TikTok. Don't take our word — watch the results.</p>
         </div>
       </div>
     </div>
@@ -437,13 +467,20 @@ const galleryImages = [
       <h2 class="text-4xl md:text-5xl font-black text-white mb-6">Ready to Book?</h2>
       <p class="text-[#94A3B8] text-lg mb-12 leading-relaxed">Give us a call or follow us on social. We're based in the San Francisco Bay Area.</p>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
         <a
-          href="tel:4153280106"
+          href="tel:+14153280106"
           class="flex items-center justify-center gap-3 bg-[#2563EB] hover:bg-[#3B82F6] text-white font-bold px-8 py-4 rounded-lg transition-all duration-200 hover:-translate-y-0.5"
         >
           <Phone size={20} />
           415-328-0106
+        </a>
+        <a
+          href="sms:+14153280106"
+          class="flex items-center justify-center gap-3 border border-[#1A3050] hover:border-[#2563EB] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 hover:-translate-y-0.5"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Text Us
         </a>
         <a
           href="https://www.instagram.com/klautospa"
@@ -456,10 +493,9 @@ const galleryImages = [
         </a>
       </div>
 
-      <div class="flex items-center justify-center gap-1 text-[#2563EB]">
-        {Array(5).fill(null).map(() => <Star size={18} fill="#2563EB" />)}
-        <span class="text-[#94A3B8] text-sm ml-3">5-Star Service</span>
-      </div>
+      <a href="https://www.instagram.com/klautospa" target="_blank" rel="noopener noreferrer" class="text-[#94A3B8] hover:text-white text-sm transition-colors">
+        See our work on Instagram →
+      </a>
     </div>
   </section>
 
@@ -473,6 +509,7 @@ const galleryImages = [
         <a href="https://www.tiktok.com/@kl.autospa" target="_blank" rel="noopener noreferrer" class="text-[#94A3B8] hover:text-white text-sm transition-colors">TikTok</a>
       </div>
     </div>
+    <p class="text-center text-[#94A3B8]/60 text-xs mt-6">© 2026 KL AutoSpa · San Francisco Bay Area · 415-328-0106</p>
   </footer>
 
   <!-- SERVICE MODALS -->
@@ -528,7 +565,7 @@ const galleryImages = [
           </ul>
 
           <a
-            href="tel:4153280106"
+            href="tel:+14153280106"
             class="flex items-center justify-center gap-2 bg-[#2563EB] hover:bg-[#3B82F6] text-white font-bold py-4 rounded-lg transition-all duration-200 w-full"
           >
             <Phone size={18} />
@@ -538,6 +575,44 @@ const galleryImages = [
       </div>
     </div>
   ))}
+
+  <style is:global>
+    #marin-map { height: 420px; }
+    @media (min-width: 768px) { #marin-map { height: 520px; } }
+    .leaflet-container { background: #06101e !important; font-family: inherit; height: 100%; }
+    .leaflet-control-zoom a { background: #0d1e35 !important; color: #60a5fa !important; border-color: #1a3050 !important; }
+    .leaflet-control-zoom a:hover { background: #2563eb !important; color: #fff !important; }
+    .kl-tooltip { background: #0d1e35 !important; color: #fff !important; border: 1px solid #2563eb !important; font-weight: 600; font-size: 12px; padding: 4px 8px; }
+  </style>
+
+  <script is:inline>
+    function initMarinMap() {
+      const el = document.getElementById('marin-map');
+      if (!el || !window.L) return;
+      const map = window.L.map(el, { scrollWheelZoom: false, attributionControl: false }).setView([37.99, -122.6], 10);
+      window.L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { subdomains: 'abcd' }).addTo(map);
+      const cities = [
+        ['San Rafael', 37.9735, -122.5311], ['Mill Valley', 37.9061, -122.5450],
+        ['Tiburon', 37.8735, -122.4570], ['Sausalito', 37.8590, -122.4853],
+        ['Novato', 38.1074, -122.5697], ['Fairfax', 37.9871, -122.5888],
+        ['San Anselmo', 37.9746, -122.5616], ['Corte Madera', 37.9255, -122.5277],
+        ['Larkspur', 37.9341, -122.5350], ['Greenbrae', 37.9521, -122.5350],
+      ];
+      const points = [];
+      cities.forEach(function(c) {
+        window.L.circleMarker([c[1], c[2]], { radius: 7, fillColor: '#2563EB', color: '#60A5FA', weight: 2, fillOpacity: 0.95 })
+          .addTo(map).bindTooltip(c[0], { className: 'kl-tooltip' });
+        points.push([c[1], c[2]]);
+      });
+      map.fitBounds(points, { padding: [40, 40], maxZoom: 11 });
+      setTimeout(function() { map.invalidateSize(); }, 200);
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() { setTimeout(initMarinMap, 100); });
+    } else {
+      setTimeout(initMarinMap, 100);
+    }
+  </script>
 
   <script>
     // Modal open

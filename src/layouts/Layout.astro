@@ -1,5 +1,4 @@
 ---
-import { SEO } from 'astro-seo';
 import '../styles/global.css';
 
 interface Props {
@@ -8,9 +7,34 @@ interface Props {
 }
 
 const {
-  title = 'KL AutoSpa — Premium Auto Detailing in the Bay Area',
-  description = 'Professional auto detailing in the San Francisco Bay Area. Exterior details, full details, showroom finishes, and paint correction. Call 415-328-0106.'
+  title = 'KL AutoSpa — Premium Mobile Auto Detailing in Marin County',
+  description = 'Mobile auto detailing across Marin County — we come to you. Exterior details, full details, showroom finishes, and paint correction. Call or text 415-328-0106.',
 } = Astro.props;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AutoDetailing',
+  name: 'KL AutoSpa',
+  description: 'Mobile auto detailing in Marin County — exterior, interior, showroom, and paint correction services.',
+  url: 'https://klautospa.vercel.app/',
+  telephone: '+1-415-328-0106',
+  image: 'https://klautospa.vercel.app/images/hero.jpg',
+  priceRange: '$105–$650+',
+  areaServed: [
+    { '@type': 'City', name: 'San Rafael' },
+    { '@type': 'City', name: 'Mill Valley' },
+    { '@type': 'City', name: 'Tiburon' },
+    { '@type': 'City', name: 'Sausalito' },
+    { '@type': 'City', name: 'Novato' },
+    { '@type': 'City', name: 'Fairfax' },
+    { '@type': 'City', name: 'San Anselmo' },
+    { '@type': 'City', name: 'Corte Madera' },
+    { '@type': 'City', name: 'Larkspur' },
+    { '@type': 'City', name: 'Greenbrae' },
+  ],
+  address: { '@type': 'PostalAddress', addressRegion: 'CA', addressCountry: 'US' },
+  sameAs: ['https://www.instagram.com/klautospa', 'https://www.tiktok.com/@kl.autospa'],
+};
 ---
 
 <!doctype html>
@@ -18,18 +42,29 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#06101E" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <SEO
-      title={title}
-      description={description}
-      openGraph={{
-        basic: {
-          title,
-          type: 'website',
-          image: '/og-image.jpg',
-        }
-      }}
-    />
+    <title>{title}</title>
+    <link rel="canonical" href="https://klautospa.vercel.app/" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content="KL AutoSpa — Mobile Auto Detailing in Marin County" />
+    <meta property="og:description" content="Two Marin County high schoolers, professional-grade results. Mobile detailing across the Bay Area. Call or text 415-328-0106." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/images/hero.jpg" />
+    <meta property="og:url" content="https://klautospa.vercel.app/" />
+    <meta property="og:site_name" content="KL AutoSpa" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="KL AutoSpa — Mobile Auto Detailing in Marin County" />
+    <meta name="twitter:description" content="Two Marin County high schoolers, professional-grade results. Mobile detailing across the Bay Area." />
+    <meta name="twitter:image" content="/images/hero.jpg" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <slot />
