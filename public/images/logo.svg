@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 48" fill="none">
+  <!-- Shield body -->
+  <path d="M24 2 L46 11 L46 30 C46 40.5 24 47 24 47 C24 47 2 40.5 2 30 L2 11 Z"
+        fill="#0D1E35" stroke="#2563EB" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- Inner shield ring -->
+  <path d="M24 7.5 L41 15 L41 30 C41 37.5 24 42.5 24 42.5 C24 42.5 7 37.5 7 30 L7 15 Z"
+        fill="none" stroke="#60A5FA" stroke-width="0.75" opacity="0.35" stroke-linejoin="round"/>
+  <!-- Blue accent line inside shield -->
+  <line x1="12" y1="33" x2="36" y2="33" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- KL text inside shield -->
+  <text x="24" y="31" text-anchor="middle"
+        font-family="'Arial Black', 'Impact', sans-serif"
+        font-weight="900" font-size="19" fill="white">KL</text>
+  <!-- Sparkle cluster top-right of shield -->
+  <circle cx="38" cy="15" r="2"   fill="#60A5FA" opacity="0.85"/>
+  <circle cx="42" cy="20" r="1.2" fill="#2563EB" opacity="0.7"/>
+  <circle cx="35" cy="11" r="1"   fill="#60A5FA" opacity="0.5"/>
+
+  <!-- Vertical divider -->
+  <rect x="56" y="11" width="1.5" height="26" fill="#1A3050" rx="0.75"/>
+
+  <!-- Wordmark: KL bold white + AutoSpa muted -->
+  <text x="66" y="24" dominant-baseline="central"
+        font-family="'Arial Black', 'Arial', sans-serif"
+        font-weight="900" font-size="17" fill="white">KL</text>
+  <text x="89" y="24" dominant-baseline="central"
+        font-family="'Arial', sans-serif"
+        font-weight="300" font-size="17" fill="#94A3B8">AutoSpa</text>
+
+  <!-- Tagline below wordmark -->
+  <text x="66" y="38" dominant-baseline="central"
+        font-family="'Arial', sans-serif"
+        font-weight="600" font-size="7.5" fill="#2563EB"
+        letter-spacing="2">MOBILE DETAILING · MARIN COUNTY</text>
+</svg>

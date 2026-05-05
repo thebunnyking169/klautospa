@@ -35,8 +35,8 @@ const services = [
     name: "Full Detail",
     price: "$205",
     pricePrefix: "",
-    popular: false,
-    filled: false,
+    popular: true,
+    filled: true,
     features: [
       "Complete exterior detail",
       "Deep interior vacuum",
@@ -57,18 +57,17 @@ const services = [
     name: "Showroom Detail",
     price: "$335",
     pricePrefix: "",
-    popular: true,
-    filled: true,
+    popular: false,
+    filled: false,
     features: [
       "Everything in Full Detail",
       "Clay bar treatment",
-      "One-step machine polish",
       "Engine bay cleaning",
       "Deep shampoo of carpets & seats",
       "Interior steam cleaning",
       "Premium paint protection applied",
     ],
-    description: "The full experience. Everything in the Full Detail, plus clay bar treatment to remove embedded contaminants, one-step machine polishing to restore gloss and remove light swirls, engine bay cleaning, deep shampoo of carpets and seats, interior steam cleaning, and a premium paint protection sealant. The closest thing to factory-fresh.",
+    description: "The full experience. Everything in the Full Detail, plus clay bar treatment to remove embedded contaminants, engine bay cleaning, deep shampoo of carpets and seats, interior steam cleaning, and a premium paint protection sealant. The closest thing to factory-fresh.",
     images: ["/images/modal-showroom-1.jpg", "/images/modal-showroom-2.jpg"],
   },
   {
@@ -108,7 +107,7 @@ const galleryImages = [
 
   <!-- NAV -->
   <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#06101E]/90 backdrop-blur-sm border-b border-[#1A3050]">
-    <span class="text-white font-bold text-lg tracking-wide">KL AutoSpa</span>
+    <img src="/images/logo.svg" alt="KL AutoSpa" class="h-10" />
     <div class="flex items-center gap-2">
       <a
         href="sms:+14153280106"
@@ -502,7 +501,7 @@ const galleryImages = [
   <!-- FOOTER -->
   <footer class="border-t border-[#1A3050] py-8 px-6 bg-[#06101E]">
     <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-      <span class="text-white font-bold">KL AutoSpa</span>
+      <img src="/images/logo.svg" alt="KL AutoSpa" class="h-9" />
       <p class="text-[#94A3B8] text-sm">San Francisco Bay Area · 415-328-0106</p>
       <div class="flex gap-6">
         <a href="https://www.instagram.com/klautospa" target="_blank" rel="noopener noreferrer" class="text-[#94A3B8] hover:text-white text-sm transition-colors">Instagram</a>
